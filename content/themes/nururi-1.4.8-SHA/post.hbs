@@ -1,0 +1,24 @@
+{{!< default}}
+{{#post}}
+<article>
+	{{>featured}}
+	<div class="section-post wrap">
+		<div class="post-wrap {{^if feature_image}}no-image{{/if}}">
+			{{content}}
+		</div>
+		{{>post-authors}}
+		<div class="post-meta">
+			{{>post-share}}
+		</div>
+	</div>
+</article>
+{{>post-navigation}}
+<div class="section-disqus">
+	{{>disqus}}
+</div>
+{{#if @labs.subscribers}}
+{{#has tag="#subscribe-form"}}
+{{>newsletter}}
+{{/has}}
+{{/if}}
+{{/post}}

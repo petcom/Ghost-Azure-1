@@ -1,0 +1,9 @@
+<ul class="nav-list">
+	{{#foreach navigation}}
+	<li class="nav-list-item">
+		<a href="{{url absolute="true"}}" class="nav-link">{{label}}</a>
+		<span class="nav-dot{{#if current}} nav-dot-current{{/if}}"></span>
+	</li>
+	{{/foreach}}
+	{{>search-icon}}
+</ul>

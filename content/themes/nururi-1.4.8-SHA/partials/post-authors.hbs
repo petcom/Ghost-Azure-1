@@ -1,0 +1,27 @@
+<div class="section-post-authors post-authors flex{{#has author="count:2"}} post-author-single post-author-double{{/has}}{{#has author="count:1"}}  post-author-single first{{/has}}">
+	<div class="author-label">
+		{{#has author="count:>1"}}
+		<span>{{t "This post was a collaboration between"}}</span>
+		{{else}}
+		<span>{{t "Read more post by this author"}}</span>
+		{{/has}}
+	</div>
+	{{#foreach authors}}
+	<div class="author-wrap flex">
+		<a href="{{url}}" class="item-link-overlay"></a>
+		{{#if profile_image}}
+		<div class="author-profile-image" style="background-image: url({{profile_image}})"></div>
+		{{else}}
+		{{#if cover_image}}
+		<div class="author-profile-image" style="background-image: url({{cover_image}})"></div>
+		{{/if}}
+		{{/if}}
+		<div class="author-content">
+			<h4{{#if bio}} class="is-bio{{/if}}{{^if profile_image}} no-profile-image{{/if}}{{^if cover_image}} no-cover-image{{/if}}"><a href="{{url}}">{{name}}</a></h4>
+			{{#if bio}}
+			<p>{{bio}}</p>
+			{{/if}}
+		</div>
+	</div>
+	{{/foreach}}
+</div>

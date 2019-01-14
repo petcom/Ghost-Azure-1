@@ -1,12 +1,8 @@
 routes:
-  /:
-    controller: channel
-    template:
-      - home
-    
+
 collections:
-  /blog/:
-    permalink: /blog/{slug}/
+  /:
+    permalink: /{slug}/
     template:
       - index
 

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="{{lang}}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{{@blog.title}} — {{t "Subscribe"}}</title>
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i&amp;subset=latin-ext" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}">
+        {{ghost_head}}
+    </head>
+    <body class="{{#get "tags" limit="all"}}{{#foreach tags visibility="internal"}} global-{{slug}}{{/foreach}}{{/get}}">
+        <div class="section-page-subscribe flex">
+            {{#if @blog.cover_image}}
+            <div class="page-subscribe-image" style="background-image: url({{@blog.cover_image}})">
+            </div>
+            {{/if}}
+            <div class="page-subscribe-wrap">
+                <div class="page-subscribe-header">
+                    <a href="{{@blog.url}}">{{t "Back to Homepage"}}</a>
+                </div>
+                <div class="page-subscribe-content flex">
+                    <div class="subscribe-wrap">
+                        {{^if success}}
+                        <h3>{{t "Subscribe to {blogtitle}" blogtitle=@blog.title}}</h3>
+                        <div class="ityped">
+                            <span class="ityped-wrap"></span>
+                        </div>
+                        {{subscribe_form placeholder=(t "Your email address") autofocus="true"}}
+                        {{#if error}}
+                        <p class="subscribe-error">{{{error.message}}}</p>
+                        {{/if}}
+                        {{else}}
+                        <h3>{{t "Subscribed!"}}</h3>
+                        {{t "You've successfully subscribed to"}} <strong>{{@blog.title}}</strong>
+                        {{t "with the email address"}} <strong>{{email}}</strong>.
+                        <br>
+                        <a href="{{@blog.url}}" class="subscribe-back-button">{{t "Back to Homepage"}}</a>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="page-subscribe-footer">
+                    <a href="{{@blog.url}}">{{@blog.title}}.</a>
+                    {{#if @blog.description}}
+                    <span>{{@blog.description}}.</span>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+        <script>
+        /*
+        * iTyped.js
+        * ------------
+        * Version : 1.0.2
+        * Website : ityped.surge.sh
+        * Repo    : github.com/luisvinicius167/ityped
+        * Author  : Luis Vinicius (@luisvinicius167)
+        * License : MIT
+        */
+        !function(e,t){"object"==typeof exports&&"undefined"!=typeof module?t(exports):"function"==typeof define&&define.amd?define(["exports"],t):t(e.ityped={})}(this,function(e){"use strict";e.init=function(e,t){var n=0,o=void 0,r=void 0,i=function(e,t){n===o&&t.loop&&(n=0),setTimeout(function(){a(e[n],t)},t.startDelay)},a=function(t,n){var o=0,r=t.length,i=setInterval(function(){if(n.placeholder?e.placeholder+=t[o]:e.textContent+=t[o],++o===r)return d(i,n)},n.typeSpeed)},d=function(e,t){return clearInterval(e),t.disableBackTyping&&n===o-1?t.onFinished():t.loop||n!==o-1?void setTimeout(function(){return c(t)},t.backDelay):t.onFinished()},c=function(t){var n=t.placeholder?e.placeholder:e.textContent,o=n.length,r=setInterval(function(){if(t.placeholder?e.placeholder=e.placeholder.substr(0,--o):e.textContent=n.substr(0,--o),0===o)return s(r,t)},t.backSpeed)},s=function(e,t){clearInterval(e),++n,i(r,t)};return function(t){var n=function(e){var t=e.strings,n=void 0===t?["Put your strings here...","and Enjoy!"]:t,o=e.typeSpeed,r=void 0===o?100:o,i=e.backSpeed,a=void 0===i?50:i,d=e.backDelay,c=void 0===d?500:d,s=e.startDelay,l=void 0===s?500:s,u=e.cursorChar,p=void 0===u?"|":u,f=e.placeholder,v=void 0!==f&&f,h=e.showCursor,y=void 0===h||h,b=e.disableBackTyping,g=void 0!==b&&b,C=e.onFinished,k=void 0===C?function(){}:C,m=e.loop;return{strings:n,typeSpeed:r,backSpeed:a,cursorChar:p,backDelay:c,placeholder:v,startDelay:l,showCursor:y,loop:void 0===m||m,disableBackTyping:g,onFinished:k}}(t||{}),a=n.strings;r=a,o=a.length,"string"==typeof e&&(e=document.querySelector(e)),n.showCursor&&function(e,t){var n=document.createElement("span");n.classList.add("ityped-cursor"),n.textContent="|",n.textContent=t.cursorChar,e.insertAdjacentElement("afterend",n)}(e,n),i(a,n)}(t)},Object.defineProperty(e,"__esModule",{value:!0})});
+        
+        ityped.init(document.querySelector(".ityped-wrap"), {
+        strings: ['{{t "Start your day with {blogtitle}" blogtitle=@blog.title}}', '{{t "No spam ever, we promise!"}}'],
+        showCursor: true,
+        typeSpeed:  150,
+        startDelay: 500,
+        backDelay:  5000
+        })
+        </script>
+        {{ghost_foot}}
+    </body>
+</html>

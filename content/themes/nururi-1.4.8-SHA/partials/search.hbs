@@ -1,0 +1,36 @@
+<div class="section-search flex" id="search">
+	<div class="search-close">{{>icons/blog/close}}</div>
+	{{#if @blog.cover_image}}
+	<div class="search-image" style="background-image: url({{@blog.cover_image}})">
+	</div>
+	{{/if}}
+	<div class="search-wrap">
+		<div class="search-content">
+			<form class="search-form flex" onsubmit="return false">
+				<input type="text" class="search-input" placeholder="{{t "Type your keywords"}}">
+			</form>
+			<div class="search-meta">
+				<span class="search-info-wrap">{{t "Please enter at least 3 characters"}}</span>
+				<span class="search-counter-wrap hide">
+					<span class="counter-results">0</span>
+				{{t "Results for your search"}}</span>
+			</div>
+			<div class="search-results">
+			</div>
+			<div class="search-suggestion flex">
+				{{>search-tags-cloud}}
+				{{>search-authors-cloud}}
+			</div>
+		</div>
+		<div class="search-footer">
+			<a href="{{@blog.url}}">{{@blog.title}}.</a>
+			{{#if @blog.description}}
+			<span>{{@blog.description}}.</span>
+			{{/if}}
+		</div>
+	</div>
+</div>
+<script>
+		var searchPublished = '{{t "Published"}}';
+		var searchFeaturedIcon = '{{>icons/blog/star}}';
+</script>

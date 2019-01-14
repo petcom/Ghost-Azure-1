@@ -1,0 +1,21 @@
+{{!< default}}
+{{#tag}}
+<div class="section-profile">
+	<div class="profile-wrap {{#if feature_image}}is-cover" style="background-image: url({{feature_image}}){{/if}}">
+		<h1>{{name}}</h1>
+		<div class="posts-number">
+			{{>icons/blog/featured}}
+			<span>
+				{{plural ../pagination.total empty=(t "No posts") singular=(t "1 post") plural=(t "% posts")}}
+			</span>
+		</div>
+		{{#if description}}
+		<h2>{{description}}</h2>
+		{{/if}}
+	</div>
+</div>
+{{/tag}}
+{{>loop}}
+{{>load-more}}
+{{pagination}}
+{{>newsletter}}

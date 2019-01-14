@@ -1,0 +1,13 @@
+{
+    "name": "nurui",
+    "version": "1.4.8",
+    "author": {
+        "email": "hello@fueko.net"
+    },
+    "config": {
+        "posts_per_page": 8
+    },
+    "keywords": [
+        "ghost-theme"
+    ]
+}

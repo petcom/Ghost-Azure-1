@@ -1,0 +1,12 @@
+{{#get "users" limit="20" include="count.posts" order="count.posts desc"}}
+<div class="search-suggestion-authors">
+	{{#foreach users}}
+	{{#if @first}}
+	<h3>{{t "May we suggest an author?"}}</h3>
+	<a class="post-tag global-tag" href="{{url}}">{{name}}</a>
+	{{else}}
+	<a class="post-tag global-tag" href="{{url}}">{{name}}</a>
+	{{/if}}
+	{{/foreach}}
+</div>
+{{/get}}

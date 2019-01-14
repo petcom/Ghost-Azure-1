@@ -1,0 +1,26 @@
+<aside class="section-prev-next">
+    <div class="prev-next-wrap">
+        {{#next_post}}
+        <a href="{{url}}" class="prev-post {{post_class}} {{#if feature_image}}is-image{{/if}}">
+            {{#if feature_image}}
+            <div class="prev-next-image" style="background-image: url({{feature_image}})"></div>
+            {{/if}}
+            <section class="prev-next-title">
+                <h5>{{t "Newer Post"}}</h5>
+                <h3>{{title}}</h3>
+            </section>
+        </a>
+        {{/next_post}}
+        {{#prev_post}}
+        <a href="{{url}}" class="next-post {{post_class}} {{#if feature_image}}is-image{{/if}}">
+            {{#if feature_image}}
+            <div class="prev-next-image" style="background-image: url({{feature_image}})"></div>
+            {{/if}}
+            <section class="prev-next-title">
+                <h5>{{t "Older Post"}}</h5>
+                <h3>{{title}}</h3>
+            </section>
+        </a>
+        {{/prev_post}}
+    </div>
+</aside>

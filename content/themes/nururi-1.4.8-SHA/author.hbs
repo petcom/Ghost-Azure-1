@@ -1,0 +1,32 @@
+{{!< default}}
+{{#author}}
+<div class="section-profile">
+	<div class="profile-wrap {{#if cover_image}}is-cover" style="background-image: url({{cover_image}}){{/if}}">
+		{{#if profile_image}}
+		<div class="author-image" style="background-image: url({{profile_image}})"></div>
+		{{/if}}
+		<h1>{{name}}</h1>
+		<div class="author-social">
+			{{#if location}}
+			<div class="location">{{>icons/blog/location}}<span>{{location}}</span></div>
+			{{/if}}
+			{{#if website}}
+			<a href="{{website}}">{{>icons/blog/link}}</a>
+			{{/if}}
+			{{#if facebook}}
+			<a href="{{facebook_url}}">{{>icons/social/facebook}}</a>
+			{{/if}}
+			{{#if twitter}}
+			<a href="{{twitter_url}}">{{>icons/social/twitter}}</a>
+			{{/if}}
+		</div>
+		{{#if bio}}
+		<h2>{{bio}}</h2>
+		{{/if}}
+	</div>
+</div>
+{{/author}}
+{{>loop}}
+{{>load-more}}
+{{pagination}}
+{{>newsletter}}

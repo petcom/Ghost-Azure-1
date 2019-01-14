@@ -1,0 +1,24 @@
+<div class="section-header wrap">
+	<header class="header-wrap flex">
+		<div class="header-logo">
+			{{#if @blog.logo}}
+			{{#is "post, page"}}<div{{else}}<h1{{/is}} class="is-logo"><a href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="{{@blog.title}}"></a>{{#is "post, page"}}</div>{{else}}</h1>{{/is}}
+			{{else}}
+			{{^is "post, page"}}<h1>{{/is}}<a class="no-logo" href="{{@blog.url}}">{{@blog.title}}</a>{{^is "post, page"}}</h1>{{/is}}{{/if}}
+		</div>
+		<div class="header-nav">
+			<nav class="nav-wrap">
+				<label for="toggle" class="nav-label hamburger hamburger-minus">
+					<span class="hamburger-box">
+						<span class="hamburger-inner"></span>
+					</span>
+				</label>
+				<input type="checkbox" id="toggle" class="nav-toggle">
+				{{navigation}}
+			</nav>
+		</div>
+		{{#if @blog.description}}
+		<div class="blog-description flex">{{@blog.description}}</div>
+		{{/if}}
+	</header>
+</div>

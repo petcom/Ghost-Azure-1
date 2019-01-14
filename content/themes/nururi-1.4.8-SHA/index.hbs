@@ -1,0 +1,25 @@
+{{!< default}}
+{{#is "home"}}
+{{#get "posts" filter="featured:true+page:[true,false]" include="authors"}}
+{{#foreach posts}}
+{{#has number="2"}}
+<div class="scrollable-nav">
+	<span class="next"></span>
+</div>
+<div id="siema" class="section-scrollable">
+	{{/has}}
+	{{/foreach}}
+	{{#foreach posts}}
+	{{>featured}}
+	{{/foreach}}
+	{{#foreach posts}}
+	{{#has number="2"}}
+</div>
+{{/has}}
+{{/foreach}}
+{{/get}}
+{{/is}}
+{{>loop}}
+{{>load-more}}
+{{pagination}}
+{{>newsletter}}

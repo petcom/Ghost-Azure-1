@@ -1,0 +1,39 @@
+{{!< default}}
+{{#get "users" include="count.posts" order="count.posts desc"}}
+<div class="section-page-authors wrap">
+    <div class="page-authors-wrap flex">
+        {{#foreach users}}
+        {{#if @first}}
+        <div class="page-authors-title">
+            <h4>{{t "Our top authors"}}</h4>
+        </div>
+        {{/if}}
+        <div class="page-author-wrap{{#if profile_image}} is-profile-image{{else}} no-profile-image{{/if}}{{#if cover_image}} is-cover-image{{else}} no-cover-image{{/if}}{{#if @last}} last-author{{/if}}">
+            <a href="{{url}}" class="item-link-overlay"></a>
+            {{#if profile_image}}
+            <div class="page-author-profile-image" style="background-image: url({{profile_image}})"></div>
+            {{else}}
+            {{#if cover_image}}
+            <div class="page-author-cover-image" style="background-image: url({{cover_image}})"></div>
+            {{/if}}
+            {{/if}}
+            <h2><a href="{{url}}">{{name}}</a></h2>
+            <div class="page-author-social author-social">
+                {{#if website}}
+                <a href="{{website}}">{{>icons/blog/link}}</a>
+                {{/if}}
+                {{#if facebook}}
+                <a href="{{facebook_url}}">{{>icons/social/facebook}}</a>
+                {{/if}}
+                {{#if twitter}}
+                <a href="{{twitter_url}}">{{>icons/social/twitter}}</a>
+                {{/if}}
+            </div>
+            {{#if bio}}
+            <p>{{bio}}</p>
+            {{/if}}
+        </div>
+        {{/foreach}}
+    </div>
+</div>
+{{/get}}
