@@ -151,7 +151,6 @@ module.exports = function apiRoutes() {
     // ## Mail
     apiRouter.post('/mail', mw.authenticatePrivate, api.http(api.mail.send));
     apiRouter.post('/mail/test', mw.authenticatePrivate, api.http(api.mail.sendTest));
-    apiRouter.post('/mail/contact', mw.authenticatePublic, api.http(api.mail.sendContact));
 
     // ## Slack
     apiRouter.post('/slack/test', mw.authenticatePrivate, api.http(api.slack.sendTest));

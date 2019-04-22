@@ -1,6 +1,6 @@
 {{!< default}}
 {{#is "home"}}
-{{#get "posts" filter="featured:true+page:[true,false]+tags:homepage" include="authors"}}
+{{#get "posts" filter="featured:true+page:[true,false]" include="authors"}}
 {{#foreach posts}}
 {{#has number="2"}}
 <div class="scrollable-nav">
@@ -10,7 +10,7 @@
 	{{/has}}
 	{{/foreach}}
 	{{#foreach posts}}
-	{{>featured_home}}
+	{{>featured}}
 	{{/foreach}}
 	{{#foreach posts}}
 	{{#has number="2"}}
@@ -19,19 +19,7 @@
 {{/foreach}}
 {{/get}}
 {{/is}}
-{{#get "posts" filter="tags:homepagecontent" }}
-{{#foreach posts}}
-
-<div class="section-post wrap">
-	<div class="post-wrap {{^if feature_image}}no-image{{/if}}">
-		<article>
-			{{content}}
-		</article>
-	</div>
-</div>
-
-{{/foreach}}
-{{/get}}
+{{>loop}}
 {{>load-more}}
-
+{{pagination}}
 {{>newsletter}}

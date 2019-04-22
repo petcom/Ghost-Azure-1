@@ -1,5 +1,6 @@
 {{!< default}}
-{{#is "home"}}
+{{#is "page"}}<div> Hello Methods Page!</div>{{/is}}
+{{#is "page"}}
 {{#get "posts" filter="featured:true+page:[true,false]+tags:homepage" include="authors"}}
 {{#foreach posts}}
 {{#has number="2"}}
@@ -19,7 +20,7 @@
 {{/foreach}}
 {{/get}}
 {{/is}}
-{{#get "posts" filter="tags:homepagecontent" }}
+{{#get "posts" filter="tags:methodscontent" }}
 {{#foreach posts}}
 
 <div class="section-post wrap">
@@ -33,5 +34,4 @@
 {{/foreach}}
 {{/get}}
 {{>load-more}}
-
 {{>newsletter}}

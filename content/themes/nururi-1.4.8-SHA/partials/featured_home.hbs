@@ -5,7 +5,6 @@
 	<div class="featured-wrap flex">
 		{{^is "post, page"}}<article{{else}}<div{{/is}} class="featured-content">
 			{{#is "home"}}
-			<span class="featured-label global-tag">{{>icons/blog/star}} {{t "Featured"}}</span>
 			<h2><a href="{{url}}">{{title}}{{#is "home"}}<span class="featured-dot"></span>{{/is}}</a></h2>
 			{{else}}
 			{{#is "post"}}
@@ -19,19 +18,23 @@
 				{{/foreach}}
 				{{/if}}
 			</div>
+			
 			{{/is}}
 			<h1 class="white">{{title}}</h1>
-			<div>TEST</div>
+			
 			{{/is}}
 			{{^is "page"}}
 			<div class="item-meta white">
+				
+				<div> <h3>{{excerpt}}</h3> </div>
+			{{^is "home, page"}}
 				<span>{{t "by"}}</span>
 				{{#has author="count:2"}}
 				{{authors separator=" <span>&</span> "}}
 				{{else}}
 				{{authors}}
 				{{/has}}
-				<time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at timeago="true"}}</time>
+				 <time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at timeago="true"}}</time> {{/is}}
 				{{#is "post"}}
 				<span class="reading-time">{{>icons/blog/stopwatch}} {{reading_time minute=(t "1 min read") minutes=(t "% min read")}}</span>
 					{{/is}}

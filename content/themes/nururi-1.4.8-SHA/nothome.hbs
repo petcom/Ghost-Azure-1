@@ -1,5 +1,5 @@
 {{!< default}}
-{{#is "home"}}
+
 {{#get "posts" filter="featured:true+page:[true,false]+tags:homepage" include="authors"}}
 {{#foreach posts}}
 {{#has number="2"}}
@@ -10,7 +10,7 @@
 	{{/has}}
 	{{/foreach}}
 	{{#foreach posts}}
-	{{>featured_home}}
+	{{>featured_other}}
 	{{/foreach}}
 	{{#foreach posts}}
 	{{#has number="2"}}
@@ -18,10 +18,9 @@
 {{/has}}
 {{/foreach}}
 {{/get}}
-{{/is}}
-{{#get "posts" filter="tags:homepagecontent" }}
-{{#foreach posts}}
 
+{{#page}}
+{{title}}
 <div class="section-post wrap">
 	<div class="post-wrap {{^if feature_image}}no-image{{/if}}">
 		<article>
@@ -29,9 +28,6 @@
 		</article>
 	</div>
 </div>
-
-{{/foreach}}
-{{/get}}
+{{/page}}
 {{>load-more}}
-
 {{>newsletter}}

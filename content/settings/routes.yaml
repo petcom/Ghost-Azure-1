@@ -1,0 +1,40 @@
+routes:
+  /:
+    controller: channel
+    template:
+      - home
+  
+  /methods/:
+    data: page.methods
+    template:
+      - nothome
+
+  /services/:
+    data: page.services
+    template:
+      - nothome
+  
+  /about-us/:
+    data: page.about-us
+    template:
+      - nothome
+ 
+  /resources/:
+    data: page.resources
+    template:
+      - nothome
+  
+  /contact/:
+    data: page.contact
+    template:
+      - nothome
+
+collections:
+  /blog/:
+    permalink: /blog/{slug}/
+    template:
+      - blog
+
+taxonomies:
+  tag: /blog/topic/{slug}/
+  author: /blog/author/{slug}/

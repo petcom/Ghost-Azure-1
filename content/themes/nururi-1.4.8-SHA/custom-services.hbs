@@ -1,5 +1,5 @@
 {{!< default}}
-{{#is "home"}}
+{{#is "page"}}
 {{#get "posts" filter="featured:true+page:[true,false]+tags:homepage" include="authors"}}
 {{#foreach posts}}
 {{#has number="2"}}
@@ -10,7 +10,7 @@
 	{{/has}}
 	{{/foreach}}
 	{{#foreach posts}}
-	{{>featured_home}}
+	{{>featured_other}}
 	{{/foreach}}
 	{{#foreach posts}}
 	{{#has number="2"}}

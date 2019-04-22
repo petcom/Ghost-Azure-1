@@ -285,8 +285,8 @@ a:focus {
     box-sizing: border-box;
     padding: 0 20px 0 0;
     -webkit-box-flex: 0;
-    -ms-flex: 0 1 350px;
-    flex: 0 1 350px;
+    -ms-flex: 0 1 700px; /*350px*/
+    flex: 0 1 700px; /*350px*/
 }
 
 .header-nav {
@@ -308,7 +308,7 @@ a:focus {
 
 .header-logo .is-logo img {
     max-width: 100%;
-    max-height: 50px;
+    max-height: 150px;/*50px*/
 }
 
 .header-logo .no-logo {
